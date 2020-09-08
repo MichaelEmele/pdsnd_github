@@ -202,7 +202,7 @@ def show_raw_data(df):
 
 
 
-    print("\nWould you like to see some lines of raw data from the current dataset of?")
+    print("\nWould you like to see some lines of raw data from the current dataset?")
     while True:
         raw_data = input('(y or n): ')
         if raw_data.lower() == 'y':
