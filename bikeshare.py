@@ -16,7 +16,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('\nHello! Let\'s explore some US bikeshare data!\n')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city = input("Please select a city you want to look at. Choose between Chicago, New York City and Washington: \n").lower()
@@ -25,7 +25,7 @@ def get_filters():
             continue
         else:
             break
-    
+
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         month = input("\nAt which month you want to look at?\nPlease choose between January, February, March, April, May, June or enter 'all' if you have no preference: ").lower()
@@ -66,17 +66,17 @@ def load_data(city, month, day):
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
     # extract month, day of week and hour from Start Time to create new columns
-   
+
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    
+
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
@@ -84,7 +84,7 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
-    
+
     return df
 
 def time_stats(df):
@@ -105,7 +105,7 @@ def time_stats(df):
     common_hour = df['hour'].mode()[0]
     print("The most common hour is: ", common_hour)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),5))
     print('-'*40)
 
 
@@ -127,7 +127,7 @@ def station_stats(df):
     combination_station = df.groupby(['Start Station','End Station']).size().nlargest(1)
     print('\nMost Commonly used combination of start station and end station:\n', combination_station)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),5))
     print('-'*40)
 
 
@@ -145,7 +145,7 @@ def trip_duration_stats(df):
     mean_travel = df['Trip Duration'].mean()
     print("Mean travel time in minutes: ", mean_travel/60)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),5))
     print('-'*40)
 
 
@@ -161,7 +161,7 @@ def user_stats(df):
         print("User Types:\n", user_types)
     except KeyError:
         print("No 'User Type' data available.")
-              
+
     # TO DO: Display counts of gender
     try:
         gender_types = df['Gender'].value_counts()
@@ -174,39 +174,39 @@ def user_stats(df):
         oldest_user = df['Birth Year'].min()
         print("\nThe oldest user was born in: ", int(oldest_user))
     except KeyError:
-        print("No 'Birth Year' data available.") 
+        print("No 'Birth Year' data available.")
     try:
         youngest_user = df['Birth Year'].max()
         print("The youngest user was born in: ", int(youngest_user))
     except KeyError:
-        print("No 'Birth Year' data available.") 
+        print("No 'Birth Year' data available.")
     try:
         most_common_yob = df['Birth Year'].value_counts().idxmax()
         print("The most common year of birth is: ", int(most_common_yob))
     except KeyError:
-        print("No 'Birth Year' data available.") 
+        print("No 'Birth Year' data available.")
 
 
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),5))
     print('-'*40)
 
 def show_raw_data(df):
     """Asks user whether he wants to see some lines of raw date from the chosen dataset.
     if yes function shows 5 lines and asks whether the user wants to see more. Continues asking unitl users answers 'no'
     """
-    
+
     displayed_rows = 5
     rows_start = 0
     rows_end = displayed_rows - 1    # using index values for rows
-    
-   
-    
+
+
+
     print("\nWould you like to see some lines of raw data from the current dataset of?")
     while True:
         raw_data = input('(y or n): ')
         if raw_data.lower() == 'y':
-                    
+
             print('\n', df.iloc[rows_start : rows_end + 1])
             rows_start += displayed_rows
             rows_end += displayed_rows
@@ -215,7 +215,7 @@ def show_raw_data(df):
             continue
         else:
             break
-            
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -230,9 +230,6 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-            
+
 if __name__ == "__main__":
 	main()
-
-
-
