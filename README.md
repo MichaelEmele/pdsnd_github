@@ -3,7 +3,7 @@ The bikeshare.py code was created on: 09/02/2020
 The README file was created on: 09/08/2020
 
 ### Project Title
-Explore US Bikeshare Data
+Explore US Bikeshare Data from Washington, New York City and Chicago
 
 ### Description
 The project aims at giving the user the possibility to explore bikeshare data from the the following cities: New York City, Washington and Chicago.
