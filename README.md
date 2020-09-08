@@ -17,4 +17,6 @@ new-york-city.csv
 washington.csv
 
 ### Credits
-The bikeshare data is provided by Motivate, a bike share system provider for many major cities in the United States
+The bikeshare data is provided by Motivate, a bike share system provider for many major cities in the United States.
+
+Important hints were provided by the Udacity team.
