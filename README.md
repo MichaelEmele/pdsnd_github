@@ -11,6 +11,7 @@ It interacts actively with the user asking him at which city he wants to have a 
 
 
 ### Files used
+The following raw data files were used for this project:
 chicago.csv
 new-york-city.csv
 washington.csv
