@@ -9,6 +9,8 @@ Explore US Bikeshare Data from Washington, New York City and Chicago
 The project aims at giving the user the possibility to explore bikeshare data from the the following cities: New York City, Washington and Chicago.
 It interacts actively with the user asking him at which city he wants to have a look at, at which time. After having asked the user for its input it provides him with statistical information about users, trips, travel times and duration. As a final question the user is asked whether he wants to have a look at some raw data.
 
+After running the code one time the user is asked whether he wants to start again.
+
 
 ### Files used
 The following raw data files were used for this project:
